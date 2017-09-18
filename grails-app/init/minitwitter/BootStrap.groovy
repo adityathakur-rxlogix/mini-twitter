@@ -6,6 +6,7 @@ class BootStrap {
 
     def init = { servletContext ->
         populateDataService.populateDefaultRoles()
+        populateDataService.populateAdminUser()
     }
 
     def destroy = {

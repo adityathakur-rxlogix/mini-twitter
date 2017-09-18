@@ -11,6 +11,7 @@ class User implements Serializable {
 
     private static final long serialVersionUID = 1
 
+    String fullName
     String email
     String username
     String password
@@ -27,9 +28,16 @@ class User implements Serializable {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
         email nullable: false, blank: false, unique: true
+        fullName nullable: true, blank: true
     }
+
+    static transients = ['name']
 
     static mapping = {
 	    password column: '`password`'
+    }
+
+    String getName() {
+        fullName?:username
     }
 }
