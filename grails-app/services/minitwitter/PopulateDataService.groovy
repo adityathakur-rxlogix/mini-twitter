@@ -30,7 +30,4 @@ class PopulateDataService {
         new Tweet(text: 'Welcome to Twitter!', createdBy: user).save(flush:true)
     }
 
-    void setInitialFeedVersion() {
-        servletContext.foo = someList
-    }
 }

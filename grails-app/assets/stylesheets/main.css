@@ -17,7 +17,7 @@ body {
     margin-bottom: 10px
 }
 
-.wrapper, .wrapper-narrow, .wrapper-permalink {
+.wrapper{
     margin: 0 auto;
     min-height: 0;
     padding: 56px 23px 15px;
@@ -35,14 +35,10 @@ body {
     }
 }
 
-.wrapper {
-    padding-bottom: 0
-}
-
 .content-main {
     float: right;
-    width: 590px;
-    margin-right: 135px;
+    width: 580px;
+    margin-right: 130px;
 }
 
 .top-timeline-tweet-box-user-image {
@@ -309,6 +305,80 @@ button, input, optgroup, select, textarea {
     padding: 15px 10px;
 }
 
+input, textarea, div[contenteditable], .t1-select {
+    display: inline-block;
+    width: 210px;
+    padding: 4px;
+    margin: 0;
+    margin-top: 0px;
+    outline: 0;
+    background-color: #fff;
+    border: 1px solid #e6ecf0;
+    border-top-color: rgb(230, 236, 240);
+    border-right-color: rgb(230, 236, 240);
+    border-bottom-color: rgb(230, 236, 240);
+    border-left-color: rgb(230, 236, 240);
+    border-radius: 3px;
+}
+
+a {
+    color: #1c94e0;
+    text-decoration: none;
+
+}
+
+a {
+    background: transparent;
+}
+
+.LoginForm-rememberForgot {
+    font-size: 12px;
+}
+
+.LoginForm label, .LoginForm .separator {
+    color: #657786;
+}
+
+.LoginForm input[type="checkbox"] {
+    width: auto;
+}
+
+.LoginForm input {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 12px;
+    width: 100%;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    width: auto;
+    height: auto;
+    padding: 0;
+    line-height: normal;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.tweet-box {
+    margin-top: 10px
+}
+
+.tweets-wrapper .panel {
+    margin-bottom: 5px !important;
+}
+
+.disable {
+    background: gray;
+    cursor: not-allowed !important;
+}
+
 @media (max-width: 800px) {
     .signin-dialog-body {
         background: #fff;
@@ -319,96 +389,48 @@ button, input, optgroup, select, textarea {
     }
 }
 
+.dropdown-menu .hlabel {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: bold;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
 
+.margin-top-10 {
+    margin-top: 10px;
+}
 
+.margin-top-50 {
+    margin-top: 50px;
+}
 
-    input, textarea, div[contenteditable], .t1-select {
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
 
-    display: inline-block;
-        width: 210px;
-        padding: 4px;
-        margin: 0;
-        margin-top: 0px;
-        outline: 0;
-        background-color: #fff;
-        border: 1px solid #e6ecf0;
-        border-top-color: rgb(230, 236, 240);
-        border-right-color: rgb(230, 236, 240);
-        border-bottom-color: rgb(230, 236, 240);
-        border-left-color: rgb(230, 236, 240);
-        border-radius: 3px;
+.margin-left-5 {
+    margin-left: 5px;
+}
 
-    }
+.width-100 {
+    width: 100px;
+}
 
-    a {
+.soft-disable {
+    background: aliceblue;
+}
 
-        color: #1c94e0;
-    text-decoration: none;
+.big-icon {
+    font-size:1.6em;
+}
 
-    }
+.red {
+    color: red;
+}
 
-    a {
-
-        background: transparent;
-
-    }
-
-    .LoginForm-rememberForgot {
-
-        font-size: 12px;
-
-    }
-
-    .LoginForm label, .LoginForm .separator {
-
-        color: #657786;
-
-    }
-
-    .LoginForm input[type="checkbox"] {
-
-        width: auto;
-
-    }
-
-    .LoginForm input {
-
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        margin-top: 12px;
-        width: 100%;
-
-    }
-
-    input[type="checkbox"], input[type="radio"] {
-
-        width: auto;
-        height: auto;
-        padding: 0;
-        line-height: normal;
-    border: 0;
-    background-color: transparent;
-        cursor: pointer;
-
-    }
-
-    input[type="checkbox"], input[type="radio"] {
-
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        padding: 0;
-
-    }
-
-    .tweet-box {
-        margin-top: 10px
-    }
-
-    .tweets-wrapper .panel {
-        margin-bottom: 5px !important;
-    }
-
-    .disable {
-        background: gray;
-        cursor: not-allowed !important;
+.edit-wrapper a {
+    vertical-align: bottom;
 }

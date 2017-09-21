@@ -6,10 +6,10 @@
     <title>
         <g:layoutTitle default="Twitter"/>
     </title>
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <asset:stylesheet src="application.css"/>
-
     <g:layoutHead/>
 </head>
 <body>
@@ -20,17 +20,8 @@
 
     <g:layoutBody/>
 
-    <div class="footer" role="contentinfo"></div>
-
-    <div id="spinner" class="spinner" style="display:none;">
-        <g:message code="spinner.alt" default="Loading&hellip;"/>
-    </div>
+    <div class="footer"></div>
 
     <asset:javascript src="application.js"/>
-<sec:ifLoggedIn>
-    <script>
-        updateFeedVersion();
-    </script>
-</sec:ifLoggedIn>
 </body>
 </html>

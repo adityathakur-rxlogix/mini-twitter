@@ -9,6 +9,7 @@ class HomeController {
 
     TwitterSecurityService twitterSecurityService
     TweetService tweetService
+    UserService userService
 
     def index() {
         [user : twitterSecurityService.loggedInUser, tweets: tweetService.fetchLatestTweets()]
@@ -30,5 +31,19 @@ class HomeController {
 
     def updateFeedVersion() {
         render([feedVersion : servletContext.feedVersion] as JSON)
+    }
+
+    def settings() {
+        [user: twitterSecurityService.loggedInUser]
+    }
+
+    def checkIfUsernameNotExists(String username) {
+        render username ? !userService.checkIfUsernameExists(username) : true
+    }
+
+    def updateUsername(String username) {
+        boolean status = username ? userService.updateUsername(username) : false
+        String message = status ? message(code: 'username.update.success') : message(code: 'username.update.fail')
+        render([status: status, message: message] as JSON)
     }
 }
