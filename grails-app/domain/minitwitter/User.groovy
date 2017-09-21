@@ -40,11 +40,6 @@ class User implements Serializable {
         password column: '`password`'
     }
 
-    /*//TODO : remove this block, when you fix the username issue
-    static beforeInsert = {
-        username = email
-    }*/
-
     String getName() {
         fullName ?: username
     }

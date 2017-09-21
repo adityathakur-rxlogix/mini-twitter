@@ -18,7 +18,7 @@
 
         <div class="LoginForm-input">
             <input class="text-input email-input" name="email" id="email" type="email"
-                   placeholder="Phone, email or username" value="${userVO?.email}" required>
+                   placeholder="Email or username" value="${userVO?.email}" required>
         </div>
 
         <div class="LoginForm-input">
