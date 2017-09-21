@@ -5,8 +5,11 @@ class BootStrap {
     PopulateDataService populateDataService
 
     def init = { servletContext ->
+
+        servletContext.feedVersion = 0;
+
         populateDataService.populateDefaultRoles()
-        populateDataService.populateAdminUser()
+        populateDataService.populateAdminUserAndWelcomeTweet()
     }
 
     def destroy = {
