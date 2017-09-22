@@ -7,7 +7,7 @@
 //
 //= require jquery-2.2.0.min
 //= require jquery.validate.min
-//= require bootstrap
+//= require bootstrap.min
 //= require_tree .
 //= require_self
 
@@ -22,9 +22,27 @@ if (typeof jQuery !== 'undefined') {
 }
 
 $(document).ready(function () {
-    
+    var toastSelector = $('.toast-dimissable');
+    toastSelector.find('.close').on('click', function () {
+       toastSelector.hide();
+    });
 });
 
+function toast(msg, type) {
+    var toastSelector = $('#toast-div');
+    toastSelector.removeClassStartingWith('alert-');
+    toastSelector.addClass('toast-dismissable' + type?type:'alert-info');
+    toastSelector.find('span').html(msg);
+    toastSelector.show();
+
+}
+
+$.fn.removeClassStartingWith = function (filter) {
+    $(this).removeClass(function (index, className) {
+        return (className.match(new RegExp("\\S*" + filter + "\\S*", 'g')) || []).join(' ')
+    });
+    return this;
+};
 
 
 

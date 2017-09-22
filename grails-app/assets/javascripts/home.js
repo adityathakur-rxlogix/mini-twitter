@@ -34,7 +34,7 @@ $(document).ready(function () {
                         tweetBtn.addClass('disable');
                         tweetBtn.attr('disabled');
                     }
-                    alert(response.message);
+                    toast(response.message, 'alert-success');
                 });
         }
     });

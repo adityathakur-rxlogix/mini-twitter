@@ -17,7 +17,7 @@ body {
     margin-bottom: 10px
 }
 
-.wrapper{
+.wrapper {
     margin: 0 auto;
     min-height: 0;
     padding: 56px 23px 15px;
@@ -424,7 +424,7 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 .big-icon {
-    font-size:1.6em;
+    font-size: 1.6em;
 }
 
 .red {
@@ -433,4 +433,41 @@ input[type="checkbox"], input[type="radio"] {
 
 .edit-wrapper a {
     vertical-align: bottom;
+}
+
+*:focus {
+    outline: none;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.navbar {
+    z-index: 992 !important;
+}
+
+.custom-toast {
+    z-index: 993;
+    position: fixed;
+    width: 580px;
+    text-align: center;
+    margin-left: 325px;
+    padding-top: 15px;
+    padding-bottom: 17px;
+}
+
+.toast-dimissable {
+    padding-right: 35px;
+}
+
+.toast-dimissable .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit
 }

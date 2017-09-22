@@ -23,7 +23,7 @@ class CustomUserDetailsService extends GormUserDetailsService {
         User.withTransaction { status ->
             User user = User.findByUsernameOrEmail(username,username)  //enable login with either username or password
 
-            if (!user) throw new UsernameNotFoundException('User not found', username)
+            if (!user) throw new UsernameNotFoundException('User not found')
 
             def authorities = user.authorities.collect {
                 new SimpleGrantedAuthority(it.authority)
