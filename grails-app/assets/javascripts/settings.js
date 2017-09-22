@@ -39,7 +39,23 @@ $(document).ready(function () {
             fullName: "Please enter a valid name."
         },
         submitHandler: function (form) {
-            // your ajax would go here
+            var formSelector = $(form);
+            $.ajax({
+                method: "POST",
+                url: "/home/updateFullName",
+                data: formSelector.serialize()
+            }).done(function (response) {
+                alert(response.message);
+                if (response.status) {
+                    var inputField = formSelector.find('input');
+                    var saveIcon = formSelector.find('.save');
+                    var editIcon = formSelector.find('.edit');
+                    inputField.attr('disabled', 'disabled').addClass('soft-disable');
+                    editIcon.find('span').toggleClass('glyphicon-edit glyphicon-remove-sign');
+                    editIcon.find('span').toggleClass('red');
+                    saveIcon.toggle();
+                }
+            });
             return false;
         }
     });
@@ -49,32 +65,41 @@ $(document).ready(function () {
             username: {
                 required: true,
                 remote: "/home/checkIfUsernameNotExists"
-            },
-            messages: {
-                username: {
-                    required: "Please enter a valid username.",
-                    remote: 'Username already exists.'
-                }
-            },
-            errorPlacement: function (error, element) {
-                error.appendTo('#username-form');
-            },
-            submitHandler: function (form) {
-                $.ajax({
-                    method: "POST",
-                    url: "/home/updateUsername",
-                    data: $(form).serialize()
-                }).done(function (response) {
-                    alert(response.message);
-                });
-                return false;
             }
+        },
+        messages: {
+            username: {
+                required: "Please enter a valid username.",
+                remote: 'Username already exists.'
+            }
+        },
+        submitHandler: function (form) {
+            var formSelector = $(form);
+            $.ajax({
+                method: "POST",
+                url: "/home/updateUsername",
+                data: formSelector.serialize()
+            }).done(function (response) {
+                alert(response.message);
+                if (response.status) {
+                    var inputField = formSelector.find('input');
+                    var saveIcon = formSelector.find('.save');
+                    var editIcon = formSelector.find('.edit');
+                    inputField.attr('disabled', 'disabled').addClass('soft-disable');
+                    editIcon.find('span').toggleClass('glyphicon-edit glyphicon-remove-sign');
+                    editIcon.find('span').toggleClass('red');
+                    saveIcon.toggle();
+                }
+            });
+            return false;
         }
     });
 
-    $('.save').on('click', function () {
+    $('.save').on('click', function (e) {
+        e.preventDefault();
         var form = $(this).parent();
         form.submit();
+        return false;
     });
 
     $('#password-form').validate({
@@ -97,6 +122,20 @@ $(document).ready(function () {
                 minlength: "Password should be minimum {0} characters."
             },
             confirmPassword: "Confirm password should match new password"
+        },
+        submitHandler: function (form) {
+            var formSelector = $(form);
+            $.ajax({
+                method: "POST",
+                url: "/home/updatePassword",
+                data: formSelector.serialize()
+            }).done(function (response) {
+                toast(response.message);
+                if(response.status) {
+                    $('.close-password-body').click();
+                }
+            });
+            return false;
         }
     });
 

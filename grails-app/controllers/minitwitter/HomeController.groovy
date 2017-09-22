@@ -2,6 +2,7 @@ package minitwitter
 
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
+import minitwitter.co.PasswordCO
 import minitwitter.constants.RoleConstants
 
 @Secured([RoleConstants.ROLE_USER,RoleConstants.ROLE_ADMIN])
@@ -44,6 +45,18 @@ class HomeController {
     def updateUsername(String username) {
         boolean status = username ? userService.updateUsername(username) : false
         String message = status ? message(code: 'username.update.success') : message(code: 'username.update.fail')
+        render([status: status, message: message] as JSON)
+    }
+
+    def updateFullName(String fullName) {
+        boolean status = fullName ? userService.updateFullName(fullName) : false
+        String message = status ? message(code: 'fullname.update.success') : message(code: 'fullname.update.fail')
+        render([status: status, message: message] as JSON)
+    }
+
+    def updatePassword(PasswordCO passwordCO) {
+        String status = userService.updatePassword(passwordCO)
+        String message = status ? message(code: 'password.update.success') : message(code: 'password.update.fail')
         render([status: status, message: message] as JSON)
     }
 }

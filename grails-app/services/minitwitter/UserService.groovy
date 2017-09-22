@@ -1,6 +1,7 @@
 package minitwitter
 
 import grails.transaction.Transactional
+import minitwitter.co.PasswordCO
 import minitwitter.co.RegisterCO
 import minitwitter.constants.RoleConstants
 
@@ -63,8 +64,26 @@ class UserService {
         boolean status = false
         if(!checkIfUsernameExists(username)) {
             User user = twitterSecurityService.loggedInUser
-            user.username = username
+            user.setUsername(username)
             if (user.save(flush:true)) status = true
+        }
+        return status
+    }
+
+    boolean updateFullName(String fullName) {
+        User user = twitterSecurityService.loggedInUser
+        user.setFullName(fullName)
+        return user.save(flush:true)
+    }
+
+    boolean updatePassword(PasswordCO passwordCO) {
+        boolean status = false
+        if (passwordCO.validate()) {
+            User user = twitterSecurityService.loggedInUser
+            if (user.password.equals(passwordCO.currentPassword)) {
+                user.setPassword(passwordCO.newPassword)
+                if(user.save(flush:true)) status = true
+            }
         }
         return status
     }
