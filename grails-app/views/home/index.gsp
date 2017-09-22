@@ -3,8 +3,7 @@
 <head>
     <meta name="layout" content="main"/>
     <title>Twitter - ${user?.name}</title>
-
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+    <asset:javascript src="home.js"/>
 </head>
 <body>
 <div id="page-outer">
@@ -36,5 +35,10 @@
         </div>
     </div>
 </div>
+<script>
+    window.onload = function () {
+        updateFeedVersion();
+    }
+</script>
 </body>
 </html>

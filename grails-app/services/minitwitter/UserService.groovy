@@ -14,6 +14,10 @@ class UserService {
         return username ? User.findByUsername(username) : null
     }
 
+    boolean checkIfUsernameExists(String username) {
+        return User.countByUsername(username) != 0
+    }
+
     void addRoleToUser(User user, String authority) {
         new UserRole(user:user, role: roleService.findRoleByAuthority(authority))
     }
@@ -54,4 +58,15 @@ class UserService {
         }
         return status
     }
+
+    boolean updateUsername(String username) {
+        boolean status = false
+        if(!checkIfUsernameExists(username)) {
+            User user = twitterSecurityService.loggedInUser
+            user.username = username
+            if (user.save(flush:true)) status = true
+        }
+        return status
+    }
+
 }

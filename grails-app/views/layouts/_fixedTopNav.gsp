@@ -11,11 +11,11 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><twt:loggedInUserFullName/> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">@<sec:username/></a></li>
+                        <li><label class="hlabel">@<sec:username/></label></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Profile</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Settings and privacy</a></li>
+                        <li><g:link controller="home" action="settings">Settings</g:link></li>
                         <li><a class="logout" href="/logout">Log out</a></li>
                     </ul>
                 </li>
