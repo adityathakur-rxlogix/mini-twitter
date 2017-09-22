@@ -35,5 +35,10 @@
         </div>
     </div>
 </div>
+<script>
+    window.onload = function () {
+        updateFeedVersion();
+    }
+</script>
 </body>
 </html>

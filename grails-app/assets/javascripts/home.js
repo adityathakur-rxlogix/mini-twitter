@@ -33,7 +33,6 @@ $(document).ready(function () {
                         tweetTxtSelector.val('');
                         tweetBtn.addClass('disable');
                         tweetBtn.attr('disabled');
-                        //reloadTweetsWidget();
                     }
                     alert(response.message);
                 });
