@@ -13,8 +13,8 @@
                     <ul class="dropdown-menu">
                         <li><label class="hlabel">@<sec:username/></label></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Profile</a></li>
-                        <li role="separator" class="divider"></li>
+                        %{--<li><a href="#">Profile</a></li>--}%
+                        %{--<li role="separator" class="divider"></li>--}%
                         <li><g:link controller="home" action="settings">Settings</g:link></li>
                         <li><a class="logout" href="/logout">Log out</a></li>
                     </ul>
